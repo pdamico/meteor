@@ -14,6 +14,7 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
 require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
@@ -27,8 +28,8 @@ require 'phpmailer/src/SMTP.php';
 $toemails = array();
 
 $toemails[] = array(
-				'email' => 'your-email@website.com', // Your Email Address
-				'name' => 'Your Name' // Your Name
+				'email' => 'mariapaulasoaresalves@gmail.com', // Your Email Address
+				'name' => 'Paulo' // Your Name
 			);
 
 
@@ -37,8 +38,8 @@ $toemails[] = array(
 ---------------------------------------------------*/
 
 $fromemail = array(
-				'email' => 'no-reply@website.com', // Company's Email Address (preferably currently used Domain Name)
-				'name' => 'Company Name' // Company Name
+				'email' => 'mariadefatima@aletheia.org.br', // Company's Email Address (preferably currently used Domain Name)
+				'name' => 'iPet' // Company Name
 			);
 
 
@@ -57,7 +58,14 @@ $recaptcha_secret = ''; // Your reCaptcha Secret
 $mail = new PHPMailer();
 
 /* Add your SMTP Codes after this Line */
-
+$mail->IsSMTP();
+$mail->CharSet = "UTF-8";
+$mail->Host = "mail.aletheia.org.br";
+$mail->SMTPDebug = 0;
+$mail->SMTPAuth = true;
+$mail->Port = 587;
+$mail->Username = "mariadefatima@aletheia.org.br";
+$mail->Password = "Campinas2020";
 
 // End of SMTP
 
@@ -67,7 +75,7 @@ $mail = new PHPMailer();
 ---------------------------------------------------*/
 
 $message = array(
-	'success'			=> 'We have <strong>successfully</strong> received your Message and will get Back to you as soon as possible.',
+	'success'			=> 'Sua mensagem foi recebida com sucesso e em breve entraremos em contato',
 	'error'				=> 'Email <strong>could not</strong> be sent due to some Unexpected Error. Please Try Again later.',
 	'error_bot'			=> 'Bot Detected! Form could not be processed! Please Try Again!',
 	'error_unexpected'	=> 'An <strong>unexpected error</strong> occured. Please Try Again later.',
